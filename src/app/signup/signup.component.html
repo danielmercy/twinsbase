@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="sub-container">
+    <div class="sub-container__inner">
+        <md-toolbar>
+            <span class="title">Twinsbase hotel</span>
+            <span spacer></span>
+            <button md-button>
+                <md-icon>arrow_back</md-icon>
+                <span>Back to home</span>
+            </button>
+        </md-toolbar>
+
+        <div class="form-container">
+           <header>
+               <h1>Sign Up</h1>
+               <p>Hi there, i am TB robot sign in and start using twinsbase hotel services</p>
+           </header>
+
+           <form>
+               <md-input-container>
+                   <input mdInput required placeholder="Email" type="email">
+               </md-input-container>
+
+               <md-input-container>
+                   <input mdInput required placeholder="Password" type="password">
+               </md-input-container>
+
+               <button md-button color="green">
+                   <span>create</span>
+               </button>
+           </form>
+        </div>
+        <div class="actions">
+            <a md-button (click)="login()">Alredy have an account?</a>
+            <a md-button routerLink="#">Terms and conditions</a>
+        </div>
+    </div>
+  </div>
+</div>

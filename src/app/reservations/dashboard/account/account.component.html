@@ -1,0 +1,81 @@
+<!--<md-card class="first-card">
+  <md-card-subtitle>Your name</md-card-subtitle>
+  <md-card-content>
+    <md-input-container [ngStyle]="{ display : isEditable ? 'inline' : 'none' }">
+      <input mdInput placeholder="Name" #iName [ngModel]="name">
+    </md-input-container>
+    <h4 [ngStyle]="{ display : checkState()}">{{name}}</h4>
+    <button md-icon-button (click)="edit()" [ngStyle]="{ display : isEditable ? 'none' : 'inline' }">
+      <md-icon>edit</md-icon>
+    </button>
+    <button md-icon-button color="accent" (click)="save()" [ngStyle]="{ display : isEditable ? 'inline' : 'none' }">
+      <md-icon>edit</md-icon>
+    </button>
+  </md-card-content>
+</md-card>-->
+
+
+<md-card class="list">
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngIf="!isAuthenticated">
+        <span md-list-avatar id="blue"><md-icon>person_outline</md-icon></span>
+        <h3 md-line class="uppercase-bold">Daniel Mercy</h3>
+        <p md-line class="light">dayodanielmercy@gmail.com</p>
+      </md-list-item>
+
+      <md-list-item *ngIf="isAuthenticated">
+          <span md-list-avatar *ngIf="isAuthenticated && !profile.photoURL" id="blue"><md-icon>person_outline</md-icon></span>
+          <img md-list-avatar *ngIf="profile.photoURL" src="{{profile.photoURL}}" alt="">
+          <h3 md-line class="uppercase-bold">{{name || 'No display name'}}</h3>
+          <p md-line class="link"><a md-button-link (click)="editAcc(profile.uid)">Edit your profile</a></p>
+      </md-list-item>
+
+      <md-divider></md-divider>
+      
+      <h3 md-subheader>About</h3>
+      <md-list-item>
+        <span md-list-avatar id="blue"><md-icon>perm_contact_calender</md-icon></span>
+        <h3 md-line>Birthday</h3>
+        <p md-line class="demo-secondary-text">12/12/2012</p>
+      </md-list-item>
+
+      <md-list-item>
+        <span md-list-avatar id="purple"><md-icon>location_city</md-icon></span>
+        <h3 md-line>Hometown</h3>
+        <p md-line class="demo-secondary-text">Ogba, Lagos</p>
+      </md-list-item>
+    </md-list>
+
+    <md-divider></md-divider>
+
+    <md-list>
+      <h3 md-subheader>Contact</h3>
+
+      <md-list-item>
+        <span md-list-avatar id="green"><md-icon>call</md-icon></span>
+        <h3 md-line>Phone number</h3>
+        <p md-line class="demo-secondary-text">(+234) 9054005943</p>
+      </md-list-item>
+
+      <md-list-item>
+        <span md-list-avatar id="orange"><md-icon>mail_outline</md-icon></span>
+        <h3 md-line>Email</h3>
+        <p md-line class="demo-secondary-text">dayodanielmer@gmail.com</p>
+      </md-list-item>
+
+      <md-list-item>
+        <span md-list-avatar id="pink"><md-icon>place</md-icon></span>
+        <h3 md-line>Address</h3>
+        <p md-line class="demo-secondary-text">No 12, Olufemi Ogunshola str</p>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+
+  <!--<md-card-actions>
+    <button md-icon-button color="primary" (click)="edit()" [ngStyle]="{ display : isEditable ? 'none' : 'inline' }">
+      <md-icon>edit</md-icon>
+    </button>
+
+  </md-card-actions>-->
+</md-card>

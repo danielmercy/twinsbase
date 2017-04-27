@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Cookie|Lobster|Lobster+Two');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    overflow-x: hidden;
+    background-color: #e6e6e6;
+    font-family: Roboto, Arial, Helvetica, sans-serif
+}
+
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url(./assets/images/loginBG.jpg);
+}

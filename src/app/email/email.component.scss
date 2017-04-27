@@ -1,0 +1,141 @@
+.container {
+    background: url(../../assets/images/loginBG.jpg) center/cover no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sub-container {
+        max-width: 1280px;
+        width: 100%;
+        height: 90vh;
+        background: rgba(255,255,255,.7);
+        box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.2);
+
+        .sub-container__inner {
+            padding: 0 25px;
+            /* justify-content: center; */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            align-items: center;
+            md-toolbar {
+                background: transparent;
+                font-family: 'cookie', cursive;
+
+                span.title {
+                    font-size: 1.4em;
+                    color: #006ff7;
+                }
+
+                [spacer] {
+                    flex: 1 1 auto;
+                }
+
+                button {
+                    font-family: 'cookie', cursive;
+                    font-size: 1.25em;
+                    background: transparent;
+                    color: white;
+                    &:hover {
+                        background: rgba(0,0,0,.2);
+                    }
+                }
+            }
+
+            .form-container {
+                max-width: 350px;
+                width: 100%;
+                height: 80%;
+                display: inline-flex;
+                justify-content: center;
+                flex-direction: column;
+                position: relative;
+
+                header{
+                    position: absolute;
+                    top: 0;
+                    text-align: center;
+                    align-self: center;
+                    padding: 0 25px;
+
+                    h1 {
+                        margin: 5px;
+                        letter-spacing: 8px;
+                        font-family: cookie;
+                        font-size: 2.5rem;
+                        color: #006ff7;
+                    }
+
+                    p {
+                        font-size: smaller;
+                        color: #8c8c8c;
+                        font-style: italic;
+                    }
+                }
+
+                form {
+                    display: inline-flex;
+                    flex-direction: column;
+                    padding: 12px;
+                    position: relative;
+                    top: 40px;
+
+                    md-input-container {
+                        margin: 8px 0;
+
+                        /deep/ .mat-input-placeholder.mat-float {
+                            color: #4e9eff;
+
+                        }
+
+                        /deep/ .mat-input-underline .mat-input-ripple {
+                            background-color: #4e9eff;
+                        }
+                    }
+
+                    button[color="light-blue"] {
+                        background: #4f9eff;
+                        margin: 15px 0;
+                    }
+
+                    button[color="green"] {
+                        background: #00e676;
+                    }
+
+                    button {
+                        text-transform: uppercase;
+                        color: white;
+                        width: 100%;
+                    }
+                }
+
+                .sub-actions {
+                    align-self: center;
+                    display: flex;
+                    position: relative;
+                    top: 65px;
+
+                    a {
+                        background: transparent;
+                        margin: 0 8px;
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                            margin: 10px 0;
+                        }
+                    }
+                }
+            }
+
+            .actions {
+                align-self: center;
+                margin: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+/deep/ md-tab-group {
+    overflow: hidden;
+    md-tab-header {
+        background: #3d3d3d;
+        color: #fff;
+    }
+
+    md-tab-body {
+        padding: 25px;
+        
+    }
+}
+
+@media screen and (max-width: 450px) and (min-width:100px) {
+    /deep/ md-tab-group {
+        md-tab-body {
+            padding: 0; 
+        }
+    }
+}
+

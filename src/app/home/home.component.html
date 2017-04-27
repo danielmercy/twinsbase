@@ -1,0 +1,86 @@
+<section>
+  <md-toolbar>
+      <a href="/" logo></a>
+      <span class="spacer"></span>
+
+      <span *ngIf="isAuthenticated" user-data>
+        <img src="{{user.auth.photoURL}}" alt="{{user.auth.email}}">
+      </span>
+      <md-icon *ngIf="!isAuthenticated">account_circle</md-icon>
+      
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
+      </button>
+
+      <md-menu #menu="mdMenu">
+        <button md-menu-item *ngIf="!isAuthenticated" routerLink="auth/email">
+          <md-icon>fingerprint</md-icon>
+          <span>Login</span>
+        </button>
+
+        <button md-menu-item *ngIf="!isAuthenticated" routerLink="auth/signup">
+          <md-icon>fingerprint</md-icon>
+          <span>Sign Up</span>
+        </button>
+
+        <button md-menu-item *ngIf="isAuthenticated" (click)="logout()"> 
+          <md-icon>fingerprint</md-icon>
+          <span>Log out</span>
+        </button>
+
+        <button md-menu-item disabled>
+          <md-icon>announcement</md-icon>
+          <span>Issues</span>
+        </button>
+
+        <button md-menu-item>
+          <md-icon>notifications_off</md-icon>
+          <span>Disable alerts</span>
+        </button>
+      </md-menu>
+    </md-toolbar>
+
+    <header banner>
+      <div class="overlay">
+        <div class="content">
+          <h2>{{slogan}}</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nostrum distinctio, sit dicta, nesciunt officia earum voluptate incidunt quia non beatae exercitationem et facilis corporis enim, laudantium, rerum odio. Quasi.</p>
+        </div>
+      </div>
+      <button md-fab check-in-btn>
+        <md-icon class="icon">add</md-icon>
+      </button>
+    </header>
+
+    <main>
+      <div class="main--content">
+        <div class="main--content__info">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+             Perspiciatis incidunt quaerat eaque veritatis tenetur placeat
+              laudantium quae quas eveniet, vel voluptatem optio hic ea,
+               voluptas omnis. Architecto aliquid, voluptatum labore?
+          </p>
+        </div>
+
+        <div class="carousel">
+          <div class="carousel--item" *ngFor="let item of carousel; let i = index">
+            <img src="../assets/images/{{item.img}}" alt="">
+            <div class="carousel--item__description">
+              <h3>{{item.title}}</h3>
+              <p>{{item.description}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+</section>
+<!--<md-tab-group md-stretch-tabs="yes">
+      <md-tab label="Gallery">
+
+      </md-tab>
+      <md-tab label="Settings">
+        
+      </md-tab>
+    </md-tab-group>-->
+

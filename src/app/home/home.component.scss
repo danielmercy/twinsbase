@@ -1,0 +1,270 @@
+md-toolbar {
+    padding: 10px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    background: transparent;
+    transition: all .1s ease-in-out;
+
+    md-icon, &button[md-icon-button] {
+        color: white;
+    }
+
+    [user-data] {
+        img {
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+        }
+    }
+    [logo] {
+        background: url(../../assets/icons/logo.png);
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 50px;
+    }
+
+    .spacer {
+        flex: 1 1 auto;
+    }
+}
+
+header[banner] {
+    background: url('../../assets/images/banner.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+
+    div.overlay {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.35);
+        transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover {
+           background: rgba(0,0,0,.8); 
+           transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        div.content {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+
+            h2 {
+                font-family: 'lobster', cursive;
+                letter-spacing: 1px;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            p {
+                font-family: 'Cookie', cursive;
+                font-weight: 100;
+                max-width: 450px;
+                text-align: center;
+                align-self: center;
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+[check-in-btn] {
+    position: relative;
+    margin-top: -10%;
+    top: -3px;
+    right: -90%;
+    z-index: 5;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        transform: rotate(-135deg);
+        transition: all .3s ease-in-out;
+    }
+}
+
+main {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 600px;
+    background: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+    z-index: -2;
+    padding: 20px;
+
+    .main--content {
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .main--content__info {
+            max-width: 500px;
+            text-align: center;
+            padding: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 25px;
+
+            &::before, &::after {
+                content: '';
+                width: 10%;
+                height: 2px;
+                background: #ff4081;
+                display: block;
+                flex: 0 0 auto;
+            }
+
+            p {
+                font-family: roboto;
+                line-height: 1.5em;
+            }
+        }
+
+    }
+
+    .carousel {
+        display: inline-block;
+        width: 100%;
+        height: 350px;
+        margin-top: 25px;
+        position: relative;
+        animation: carousel 10s alternate both infinite;
+
+        .carousel--item {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            float: left;
+            overflow: hidden;
+            position: absolute;
+            background: #fff;
+            transition: all .2s;
+            box-shadow: 0px 0px 10px 1px rgba(0,0,0,.2);
+
+            &:hover img{
+                transform: scale(1.2);
+                transition: all .2s;
+            }
+
+            @for $i from 1 through 7 {
+                &:nth-child(#{$i})  {
+                    left: 33.33% * $i - 33.33%;
+                }
+            }
+
+            img {
+                width: 100%;
+            }
+
+            .carousel--item__description {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                font-family: roboto;
+                color: #0351dd;
+                padding: 10px 0 30px 0;
+
+                h3 {
+                    margin: 5px;
+                }
+
+                p {
+                    font-size: 1em;
+                    max-width: 300px;
+                    color: #666;
+                    margin: 0;
+
+                    &::before {
+                        display: block;
+                        content: '';
+                        height: 2px;
+                        width: 30%;
+                        margin: 10px auto;
+                        background: -webkit-linear-gradient(left, #0351dd , #ff4081); /* Safari 5.1 to 6.0 */
+                        background: -o-linear-gradient(right, #0351dd, #ff4081); /* Opera 11.1 to 12.0 */
+                        background: -moz-linear-gradient(right, #0351dd, #ff4081); /* Firefox 3.6 to 15 */
+                        background: linear-gradient(to right, #0351dd , #ff4081); /* Standard syntax */
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 760px) {
+    header[banner] {
+        height: 380px;
+
+        div.overlay .content {
+            margin-top: 30px;
+            h2 {
+                font-size: 1.2em;
+            }
+            p {
+                max-width: 360px;
+            }
+        }
+    }
+
+    [check-in-btn] {
+        right: 85%;
+    }
+
+
+    .carousel {
+        animation: mobile-lg-carousel 10s alternate both infinite !important;
+        .carousel--item {
+            width: calc(50% - 10px) !important;
+            margin: 5px;
+
+            @for $i from 1 through 7 {
+                &:nth-child(#{$i})  {
+                    left: 50% * $i - 50% !important;
+                }
+            }
+        }
+    }
+
+    @keyframes mobile-lg-carousel{
+        0% {
+            transform: translateX(0%);
+        }
+        50% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(-150%);
+        }
+        150% {
+            transform: translateX(-200%);
+        }
+    }
+}
+
+@keyframes carousel{
+    0% {
+        transform: translateX(0%);
+    }
+    33.33% {
+        transform: translateX(-66.66%);
+    }
+    66.66% {
+        transform: translateX(-99.99%);
+    }
+    99.99% {
+        transform: translateX(-133.32%);
+    }
+}

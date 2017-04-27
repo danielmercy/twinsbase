@@ -1,0 +1,75 @@
+<md-card class="list">
+  <md-card-content>
+    <md-list>
+      <h3 md-subheader>Display</h3>
+      <md-list-item>
+        <span md-list-avatar id="pink"><md-icon>perm_contact_calender</md-icon></span>
+        <h3 md-line>Date of Birth</h3>
+        <p md-line>show date of birth</p>
+        <md-slide-toggle color="primary" [(ngModel)]="birthToggle"></md-slide-toggle>
+      </md-list-item>
+
+      <md-list-item>
+        <span md-list-avatar id="purple"><md-icon>location_city</md-icon></span>
+        <h3 md-line>Hometown</h3>
+        <p md-line class="demo-secondary-text">Ogba, Lagos</p>
+        <md-slide-toggle color="primary" [(ngModel)]="birthToggle"></md-slide-toggle>
+      </md-list-item>
+    </md-list>
+
+    <md-divider></md-divider>
+
+    <md-list>
+      <h3 md-subheader>Notification</h3>
+
+      <md-list-item>
+        <span md-list-avatar *ngIf="!PushNotify" id="yellow"><md-icon>notifications</md-icon></span>
+        <span md-list-avatar *ngIf="PushNotify" id="yellow"><md-icon>notifications_active</md-icon></span>
+        <h3 md-line>Enable push notifications</h3>
+        <p md-line class="demo-secondary-text">allow new events, messages to be sent to you</p>
+        <md-slide-toggle color="primary" [(ngModel)]="PushNotify"></md-slide-toggle>
+      </md-list-item>
+
+      <md-list-item>
+        <span md-list-avatar *ngIf="!EmailNotify" id="blue"><md-icon>mail_outline</md-icon></span>
+        <span md-list-avatar *ngIf="EmailNotify" id="blue"><md-icon>email</md-icon></span>
+        <h3 md-line>Email</h3>
+        <p md-line class="demo-secondary-text">allow new events, messages to be sent to your email</p>
+        <md-slide-toggle color="primary" [(ngModel)]="EmailNotify"></md-slide-toggle>
+      </md-list-item>
+    </md-list>
+
+    <md-divider></md-divider>
+
+    <md-list>
+      <h3 md-subheader>Security</h3>
+
+      <md-list-item>
+        <span md-list-avatar id="orange"><md-icon>vpn_key</md-icon></span>
+        <h3 md-line>Change password</h3>
+        <p md-line>****************</p>
+        <md-slide-toggle color="warn" [(ngModel)]="password"></md-slide-toggle>
+      </md-list-item>
+    </md-list>
+
+    <md-divider></md-divider>
+
+    <md-list>
+      <h3 md-subheader>credit card options</h3>
+
+      <md-list-item>
+        <span md-list-avatar id="orange"><md-icon>credit_card</md-icon></span>
+        <h3 md-line>Credit Card</h3>
+        <p md-line>enable edit access in account tab</p>
+        <md-slide-toggle color="warn" [(ngModel)]="card"></md-slide-toggle>
+      </md-list-item>
+
+      <button md-raised-button color="warn" (click)="deleteAccount()" [disabled]="isLoading" [class.loading]="isLoading" class="progess-button">
+        <md-icon>delete_forever</md-icon>
+        <span text>DELETE ACCOUNT</span>
+        <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+      </button>
+      
+    </md-list>
+  </md-card-content>
+</md-card>

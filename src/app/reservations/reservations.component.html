@@ -1,0 +1,85 @@
+
+
+<md-sidenav-container #sidenavWrapper fullscreen>
+  <md-toolbar color="dark">
+    <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+    </button>
+
+    <span>Reservation</span>
+    <span spacer></span>
+
+    <button md-icon-button>
+        <md-icon>message</md-icon>
+        <span dm-badge><p>1</p></span>
+    </button>
+    <md-icon *ngIf="!isAuthenticated || !user.photoURL">account_circle</md-icon>
+    <img *ngIf="isAuthenticated && user.photoURL" class="user-img" src="{{user.photoURL}}" alt="">
+
+    <button md-icon-button>
+        <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-sidenav #sidenav [mode]="navMode" [opened]="isLargeScreen()">
+      <md-toolbar color="primary" hasBG>
+          <button md-icon-button (click)="sidenav.close()">
+            <md-icon>arrow_back</md-icon>
+          </button>
+          <span spacer></span>
+          <button md-icon-button>
+            <md-icon>more_vert</md-icon>
+          </button>
+
+          <md-toolbar-row class="sidenav-image-container">
+            <img *ngIf="!isAuthenticated" src="../../assets/images/img(7).jpg" alt="">
+            <img *ngIf="isAuthenticated" src="{{user.photoURL}}" alt="">
+            <span inline *ngIf="!isAuthenticated">
+              <h5 md-line>Daniel Mercy</h5>
+              <p md-line>dayodanielmercy@gmail.com</p>
+            </span>
+            <span inline *ngIf="isAuthenticated">
+              <h5 md-line>{{user.displayName}}</h5>
+              <p md-line>{{user.email}}</p>
+            </span>
+          </md-toolbar-row>
+      </md-toolbar>
+      <div nav-list>
+        <md-nav-list>
+          <a md-list-item routerLink="dashboard">
+            <md-icon md-list-icon>person</md-icon>
+            <span md-line>Dashboard</span>
+            <span md-line>Set up your display name and others</span>
+          </a>
+
+          <a md-list-item routerLink="bookings">
+            <md-icon md-list-icon class="primary">event_note</md-icon>
+            <span md-line>Bookings</span>
+            <span md-line>Make a reservation for you and your family</span>
+          </a>
+
+          <a md-list-item routerLink="reviews">
+            <md-icon md-list-icon class="primary">timeline</md-icon>
+            <span md-line>Reviews</span>
+            <span md-line>View your timeline</span>
+          </a>
+
+          <a md-list-item routerLink="settings">
+            <md-icon md-list-icon class="primary">settings</md-icon>
+            <span md-line>Settings</span>
+            <span md-line>Change settings</span>
+          </a>
+        </md-nav-list>
+      </div>
+
+      <div md-sidenav-actions>
+        <button md-raised-button (click)="logout()">
+          <md-icon>fingerprint</md-icon>
+          <span>Logout</span>
+        </button>
+      </div>
+  </md-sidenav>
+
+  <div class="sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>

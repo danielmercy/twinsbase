@@ -1,0 +1,116 @@
+[spacer] {
+    flex: 1 1 auto;
+}
+
+[dm-badge] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: red;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    p {
+        margin-top: -12px;
+        font-size: x-small; 
+    }
+}
+
+[fixed] {
+    position: fixed;
+    right: 0;
+    left: 0;
+}
+
+.sidenav-image-container {
+    pointer-events: none;
+    position: relative;
+    top: -20px;
+    padding: 0 32px;
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    [inline] {
+        padding-left: 10px;
+        h5, p {
+            margin: 0
+        }
+
+        h5 {
+            font-weight: 500;
+            font-size: small;
+            text-transform: uppercase;
+        }
+
+        p {
+            @extend h5;
+            text-transform: lowercase;
+            font-size: x-small;
+        }
+    }
+}
+
+md-sidenav-container { 
+    position: absolute;
+    [color="dark"] {
+        background-color: rgb(61, 61, 61);
+        color: #fff; 
+    }
+    .user-img {
+        width: 35px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,2);
+    }
+
+    md-sidenav {
+        [hasBG] {
+            background: url('../../assets/images/userBG.jpg') center / cover no-repeat;
+            height: 112px;
+        }
+        .accent {
+            color: #ff4081
+        }
+        max-width: 300px;
+        width: 100%; 
+
+        md-nav-list {
+            padding-top: 0;
+            md-list-item:hover [md-list-icon] {
+                background: rgba(61, 61, 61, .5);
+                color: white;
+            }
+
+            [md-list-icon] {
+                width: 44px;
+                height: 34px;
+                color: #5f5f5f;
+                background: #e1e0e0;
+                align-items: center;
+                display: inline-flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    [md-sidenav-actions] {
+        position: absolute;
+        width: 100%;
+        color: white;
+        bottom: 0;
+
+        button {
+            width: 100%;
+            background: #e64b3b;
+        }
+    }
+}  
